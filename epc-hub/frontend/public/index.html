@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Engineering Project Center - Innovation & Training Hub</title>
+    <meta name="description" content="Leading engineering project center offering IoT, mechanical design, automation, and training services">
+    <meta name="keywords" content="engineering projects, IoT, mechanical design, automation, workshops, internships">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav container">
+            <div class="nav__brand">
+                <h2>🔧 EPC Hub</h2>
+            </div>
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li><a href="#home" class="nav__link">Home</a></li>
+                    <li><a href="#about" class="nav__link">About</a></li>
+                    <li><a href="#services" class="nav__link">Services</a></li>
+                    <li><a href="#programs" class="nav__link">Programs</a></li>
+                    <li><a href="#portfolio" class="nav__link">Portfolio</a></li>
+                    <li><a href="#contact" class="nav__link">Contact</a></li>
+                </ul>
+                <div class="nav__actions">
+                    <button class="btn btn--primary btn--sm" onclick="openModal('quoteModal')">Get Quote</button>
+                </div>
+            </div>
+            <div class="nav__toggle" id="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero__container container">
+            <div class="hero__content">
+                <h1 class="hero__title">Transform Your Engineering Ideas Into Reality</h1>
+                <p class="hero__description">Leading engineering project center specializing in IoT, automation, mechanical design, and comprehensive student training programs.</p>
+                <div class="hero__actions">
+                    <button class="btn btn--primary btn--lg" onclick="openModal('quoteModal')">Get a Quote</button>
+                    <a href="#portfolio" class="btn btn--outline btn--lg">View Our Work</a>
+                </div>
+            </div>
+            <div class="hero__stats">
+                <div class="stat">
+                    <span class="stat__number" data-count="150">0</span>
+                    <span class="stat__label">Projects Completed</span>
+                </div>
+                <div class="stat">
+                    <span class="stat__number" data-count="500">0</span>
+                    <span class="stat__label">Students Trained</span>
+                </div>
+                <div class="stat">
+                    <span class="stat__number" data-count="120">0</span>
+                    <span class="stat__label">Happy Clients</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="section__header">
+                <h2 class="section__title">About Engineering Project Center</h2>
+                <p class="section__subtitle">Empowering the next generation of engineers through hands-on projects and industry-relevant training</p>
+            </div>
+            <div class="about__grid">
+                <div class="about__content">
+                    <h3>Our Mission</h3>
+                    <p>To bridge the gap between academic learning and industry requirements by providing practical, hands-on engineering project development and comprehensive training programs.</p>
+                    
+                    <h3>Our Vision</h3>
+                    <p>To become the leading platform for engineering innovation and skill development, fostering creativity and technical excellence among students and professionals.</p>
+                    
+                    <h3>Company Values</h3>
+                    <ul class="about__values">
+                        <li>✨ Innovation-driven approach</li>
+                        <li>🎯 Quality and precision</li>
+                        <li>🤝 Student-centric learning</li>
+                        <li>⚡ Cutting-edge technology</li>
+                    </ul>
+                </div>
+                <div class="about__image">
+                    <div class="image-placeholder">
+                        <span>Engineering Innovation Lab</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section__header">
+                <h2 class="section__title">Our Engineering Services</h2>
+                <p class="section__subtitle">Comprehensive engineering solutions from concept to completion</p>
+            </div>
+            <div class="services__grid" id="services-grid">
+                <!-- Services will be loaded dynamically -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Programs Section (Workshops & Internships) -->
+    <section class="programs" id="programs">
+        <div class="container">
+            <div class="section__header">
+                <h2 class="section__title">Training Programs</h2>
+                <p class="section__subtitle">Hands-on workshops and industry internships</p>
+            </div>
+            
+            <!-- Workshops -->
+            <div class="programs__section">
+                <h3 class="programs__title">Workshops</h3>
+                <div class="programs__grid" id="workshops-grid">
+                    <!-- Workshops loaded dynamically -->
+                </div>
+            </div>
+
+            <!-- Internships -->
+            <div class="programs__section">
+                <h3 class="programs__title">Internship Opportunities</h3>
+                <div class="programs__grid" id="internships-grid">
+                    <!-- Internships loaded dynamically -->
+                </div>
+            </div>
+
+            <!-- Interview Preparation -->
+            <div class="programs__section">
+                <h3 class="programs__title">Interview Preparation</h3>
+                <div class="programs__grid" id="interview-prep-grid">
+                    <!-- Interview prep loaded dynamically -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section class="portfolio" id="portfolio">
+        <div class="container">
+            <div class="section__header">
+                <h2 class="section__title">Our Work Portfolio</h2>
+                <p class="section__subtitle">Showcasing our successful engineering projects and innovations</p>
+            </div>
+            <div class="portfolio__grid" id="portfolio-grid">
+                <!-- Portfolio items loaded dynamically -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievements Section -->
+    <section class="achievements">
+        <div class="container">
+            <h2 class="section__title">Our Achievements</h2>
+            <div class="achievements__grid" id="achievements-grid">
+                <!-- Achievements loaded dynamically -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section class="why-choose">
+        <div class="container">
+            <div class="section__header">
+                <h2 class="section__title">Why Choose Us</h2>
+                <p class="section__subtitle">What makes us the preferred choice for engineering projects and training</p>
+            </div>
+            <div class="why-choose__grid" id="why-choose-grid">
+                <!-- Why choose us items loaded dynamically -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section__header">
+                <h2 class="section__title">Get in Touch</h2>
+                <p class="section__subtitle">Ready to start your next engineering project or join our training programs?</p>
+            </div>
+            <div class="contact__grid">
+                <div class="contact__info">
+                    <h3>Contact Information</h3>
+                    <div class="contact__item">
+                        <span class="contact__icon">📧</span>
+                        <div>
+                            <strong>Email</strong>
+                            <p>info@engineeringprojectcenter.com</p>
+                        </div>
+                    </div>
+                    <div class="contact__item">
+                        <span class="contact__icon">📞</span>
+                        <div>
+                            <strong>Phone</strong>
+                            <p>+91 98765 43210</p>
+                        </div>
+                    </div>
+                    <div class="contact__item">
+                        <span class="contact__icon">📍</span>
+                        <div>
+                            <strong>Address</strong>
+                            <p>123 Tech Hub, Innovation District, Bangalore - 560001</p>
+                        </div>
+                    </div>
+                    <div class="contact__item">
+                        <span class="contact__icon">🕐</span>
+                        <div>
+                            <strong>Hours</strong>
+                            <p>Mon-Sat: 9:00 AM - 6:00 PM</p>
+                        </div>
+                    </div>
+                    <div class="contact__actions">
+                        <a href="https://wa.me/919876543210" class="btn btn--primary" target="_blank">WhatsApp Us</a>
+                        <button class="btn btn--outline" onclick="openModal('contactModal')">Send Message</button>
+                    </div>
+                </div>
+                <div class="contact__form-placeholder">
+                    <div class="image-placeholder">
+                        <span>Contact Us Today</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__grid">
+                <div class="footer__brand">
+                    <h3>🔧 EPC Hub</h3>
+                    <p>Transforming engineering ideas into reality through innovation and excellence.</p>
+                </div>
+                <div class="footer__links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#programs">Programs</a></li>
+                        <li><a href="#portfolio">Portfolio</a></li>
+                    </ul>
+                </div>
+                <div class="footer__social">
+                    <h4>Follow Us</h4>
+                    <div class="social__links" id="social-links">
+                        <!-- Social links loaded dynamically -->
+                    </div>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <p>&copy; 2025 Engineering Project Center. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Quote Modal -->
+    <div id="quoteModal" class="modal hidden">
+        <div class="modal__content">
+            <div class="modal__header">
+                <h3>Get Project Quote</h3>
+                <button class="modal__close" onclick="closeModal('quoteModal')">&times;</button>
+            </div>
+            <form id="quoteForm" class="modal__form">
+                <div class="form-group">
+                    <label for="quoteName" class="form-label">Name *</label>
+                    <input type="text" id="quoteName" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="quoteEmail" class="form-label">Email *</label>
+                    <input type="email" id="quoteEmail" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="projectType" class="form-label">Project Type *</label>
+                    <select id="projectType" class="form-control" required>
+                        <option value="">Select Project Type</option>
+                        <option value="iot">IoT Projects</option>
+                        <option value="mechanical">Mechanical Design</option>
+                        <option value="automation">Automation</option>
+                        <option value="3d-modeling">3D Modeling</option>
+                        <option value="model-making">Model Making</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="quoteDescription" class="form-label">Project Description *</label>
+                    <textarea id="quoteDescription" class="form-control" rows="4" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="quoteBudget" class="form-label">Budget Range</label>
+                    <select id="quoteBudget" class="form-control">
+                        <option value="">Select Budget Range</option>
+                        <option value="under-50k">Under ₹50,000</option>
+                        <option value="50k-1l">₹50,000 - ₹1,00,000</option>
+                        <option value="1l-3l">₹1,00,000 - ₹3,00,000</option>
+                        <option value="3l-plus">₹3,00,000+</option>
+                    </select>
+                </div>
+                <div class="modal__actions">
+                    <button type="button" class="btn btn--outline" onclick="closeModal('quoteModal')">Cancel</button>
+                    <button type="submit" class="btn btn--primary">Submit Quote Request</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Contact Modal -->
+    <div id="contactModal" class="modal hidden">
+        <div class="modal__content">
+            <div class="modal__header">
+                <h3>Contact Us</h3>
+                <button class="modal__close" onclick="closeModal('contactModal')">&times;</button>
+            </div>
+            <form id="contactForm" class="modal__form">
+                <div class="form-group">
+                    <label for="contactName" class="form-label">Name *</label>
+                    <input type="text" id="contactName" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="contactEmail" class="form-label">Email *</label>
+                    <input type="email" id="contactEmail" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="contactSubject" class="form-label">Subject *</label>
+                    <input type="text" id="contactSubject" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="contactMessage" class="form-label">Message *</label>
+                    <textarea id="contactMessage" class="form-control" rows="5" required></textarea>
+                </div>
+                <div class="modal__actions">
+                    <button type="button" class="btn btn--outline" onclick="closeModal('contactModal')">Cancel</button>
+                    <button type="submit" class="btn btn--primary">Send Message</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Success/Error Messages -->
+    <div id="messageContainer" class="message-container hidden">
+        <div id="messageContent" class="message"></div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

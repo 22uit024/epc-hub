@@ -646,16 +646,28 @@ function handleQuoteSubmit(e) {
         return;
     }
     
-    // Simulate API call
-    simulateApiCall('/api/quotes', quoteData)
-        .then(response => {
+    // Send data to backend
+    fetch('http://localhost:5001/api/quotes', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(quoteData)
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
             showMessage('Quote request submitted successfully! We\'ll contact you soon.', 'success');
             closeModal('quoteModal');
             e.target.reset();
-        })
-        .catch(error => {
+        } else {
             showMessage('Failed to submit quote request. Please try again.', 'error');
-        });
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        showMessage('Failed to submit quote request. Please try again.', 'error');
+    });
 }
 
 // Handle contact form submission
@@ -682,30 +694,27 @@ function handleContactSubmit(e) {
         return;
     }
     
-    // Simulate API call
-    simulateApiCall('/api/contact', contactData)
-        .then(response => {
+    // Send data to backend
+    fetch('http://localhost:5001/api/contact', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(contactData)
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
             showMessage('Message sent successfully! We\'ll get back to you soon.', 'success');
             closeModal('contactModal');
             e.target.reset();
-        })
-        .catch(error => {
+        } else {
             showMessage('Failed to send message. Please try again.', 'error');
-        });
-}
-
-// Simulate API calls
-function simulateApiCall(endpoint, data) {
-    return new Promise((resolve, reject) => {
-        setTimeout(() => {
-            console.log(`API Call to ${endpoint}:`, data);
-            // Simulate success (90% success rate)
-            if (Math.random() > 0.1) {
-                resolve({ status: 'success', message: 'Data submitted successfully' });
-            } else {
-                reject(new Error('Simulated API error'));
-            }
-        }, 1000);
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        showMessage('Failed to send message. Please try again.', 'error');
     });
 }
 

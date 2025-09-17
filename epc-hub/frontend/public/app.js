@@ -647,6 +647,7 @@ function handleQuoteSubmit(e) {
     }
     
     // Send data to backend
+    console.log('Submitting quote data:', quoteData);
     fetch('http://localhost:5001/api/quotes', {
         method: 'POST',
         headers: {
@@ -654,19 +655,23 @@ function handleQuoteSubmit(e) {
         },
         body: JSON.stringify(quoteData)
     })
-    .then(response => response.json())
+    .then(response => {
+        console.log('Response status:', response.status);
+        return response.json();
+    })
     .then(data => {
+        console.log('Response data:', data);
         if (data.success) {
             showMessage('Quote request submitted successfully! We\'ll contact you soon.', 'success');
             closeModal('quoteModal');
             e.target.reset();
         } else {
-            showMessage('Failed to submit quote request. Please try again.', 'error');
+            showMessage('Failed to submit quote request: ' + (data.error || 'Unknown error'), 'error');
         }
     })
     .catch(error => {
-        console.error('Error:', error);
-        showMessage('Failed to submit quote request. Please try again.', 'error');
+        console.error('Quote submission error:', error);
+        showMessage('Failed to submit quote request: ' + error.message, 'error');
     });
 }
 
@@ -695,6 +700,7 @@ function handleContactSubmit(e) {
     }
     
     // Send data to backend
+    console.log('Submitting contact data:', contactData);
     fetch('http://localhost:5001/api/contact', {
         method: 'POST',
         headers: {
@@ -702,19 +708,23 @@ function handleContactSubmit(e) {
         },
         body: JSON.stringify(contactData)
     })
-    .then(response => response.json())
+    .then(response => {
+        console.log('Contact response status:', response.status);
+        return response.json();
+    })
     .then(data => {
+        console.log('Contact response data:', data);
         if (data.success) {
             showMessage('Message sent successfully! We\'ll get back to you soon.', 'success');
             closeModal('contactModal');
             e.target.reset();
         } else {
-            showMessage('Failed to send message. Please try again.', 'error');
+            showMessage('Failed to send message: ' + (data.error || 'Unknown error'), 'error');
         }
     })
     .catch(error => {
-        console.error('Error:', error);
-        showMessage('Failed to send message. Please try again.', 'error');
+        console.error('Contact submission error:', error);
+        showMessage('Failed to send message: ' + error.message, 'error');
     });
 }
 

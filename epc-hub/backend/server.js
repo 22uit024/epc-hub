@@ -6,14 +6,25 @@ import dotenv from "dotenv";
 dotenv.config();
 const app = express();
 
-app.use(cors());
+// Enhanced CORS configuration
+app.use(cors({
+  origin: ['http://localhost:3000', 'http://127.0.0.1:3000'],
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization']
+}));
+
 app.use(express.json());
 
+// Add request logging middleware
+app.use((req, res, next) => {
+  console.log(`${new Date().toISOString()} - ${req.method} ${req.path}`);
+  console.log('Body:', req.body);
+  next();
+});
+
 // MongoDB Connection
-mongoose.connect(process.env.MONGO_URI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-})
+mongoose.connect(process.env.MONGO_URI)
 .then(() => console.log("✅ MongoDB connected"))
 .catch(err => console.error("❌ MongoDB error:", err));
 
@@ -40,6 +51,15 @@ const ContactSchema = new mongoose.Schema({
 const Contact = mongoose.model("Contact", ContactSchema);
 
 // Routes
+
+// Health check endpoint
+app.get("/api/health", (req, res) => {
+  res.json({ 
+    success: true, 
+    message: "Backend server is running",
+    timestamp: new Date().toISOString()
+  });
+});
 
 // GET Routes to view data
 app.get("/api/quotes", async (req, res) => {
